@@ -42,6 +42,7 @@ class MedecinController extends Controller
         $medecin=new Medecin();
         $medecin->id_cabinet= $request->id_cabinet;
         $medecin->nom= $request->nom;
+        $medecin->email=$request->email;
         $medecin->sexe= $request->sexe;
         $medecin->téléphone= $request->téléphone;
         $medecin->adresse= $request->adresse;
@@ -91,6 +92,8 @@ return view('medecins.edit',compact('medecin'));
         $medecin= Medecin::find($id);
         $medecin->id_cabinet= $request->id_cabinet;
         $medecin->nom= $request->nom;
+        $medecin->email=$request->email;
+
         $medecin->sexe= $request->sexe;
         $medecin->téléphone= $request->téléphone;
         $medecin->adresse= $request->adresse;
