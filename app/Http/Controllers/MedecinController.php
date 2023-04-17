@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cabinet;
 use App\Models\Medecin;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class MedecinController extends Controller
      */
     public function index()
     {
-        //
+        $medecins = Medecin::all();
+
+        return view('medecins.index', compact('medecins'));
     }
 
     /**
@@ -23,8 +26,9 @@ class MedecinController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {        $cabinet = Cabinet::all();
+        return view('medecins.create', compact('cabinet'));
+
     }
 
     /**
@@ -35,7 +39,20 @@ class MedecinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $medecin=new Medecin();
+        $medecin->id_cabinet= $request->id_cabinet;
+        $medecin->nom= $request->nom;
+        $medecin->sexe= $request->sexe;
+        $medecin->téléphone= $request->téléphone;
+        $medecin->adresse= $request->adresse;
+        $medecin->date_naissance= $request->date_naissance;
+        $medecin->specialite= $request->specialite;
+        $medecin->pays= $request->pays;
+        $medecin->code_postal= $request->code_postal;
+        $medecin->save();
+        return redirect()->route('medecins.index');
+
+        
     }
 
     /**
@@ -44,9 +61,10 @@ class MedecinController extends Controller
      * @param  \App\Models\Medecin  $medecin
      * @return \Illuminate\Http\Response
      */
-    public function show(Medecin $medecin)
+    public function show(string $id)
     {
-        //
+        $medecin = Medecin::find($id);
+        return view('cabinets.show', compact('medecin'));
     }
 
     /**
@@ -55,9 +73,10 @@ class MedecinController extends Controller
      * @param  \App\Models\Medecin  $medecin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medecin $medecin)
+    public function edit(string $id)
     {
-        //
+        $medecin= Medecin::find($id);
+return view('medecins.edit',compact('medecin'));
     }
 
     /**
@@ -67,9 +86,21 @@ class MedecinController extends Controller
      * @param  \App\Models\Medecin  $medecin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medecin $medecin)
+    public function update(Request $request, string $id)
     {
-        //
+        $medecin= Medecin::find($id);
+        $medecin->id_cabinet= $request->id_cabinet;
+        $medecin->nom= $request->nom;
+        $medecin->sexe= $request->sexe;
+        $medecin->téléphone= $request->téléphone;
+        $medecin->adresse= $request->adresse;
+        $medecin->date_naissance= $request->date_naissance;
+        $medecin->specialite= $request->specialite;
+        $medecin->pays= $request->pays;
+        $medecin->code_postal= $request->code_postal;
+        $medecin->save();
+        return redirect()->route('medecins.index');
+
     }
 
     /**
@@ -78,8 +109,11 @@ class MedecinController extends Controller
      * @param  \App\Models\Medecin  $medecin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medecin $medecin)
+    public function destroy(string $id)
     {
-        //
+        $medecin= Medecin::find($id);
+        $medecin->save();
+        return view('medecins.destroy',compact('medecin'));
+
     }
 }

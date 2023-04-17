@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date_rendezVous');
             $table->time('heure');
             $table->string('motif');
-            $table->string('type_rendez-vous');
+            $table->string('type_rendezVous');
             $table->unsignedBigInteger('id_medecin');
             $table->foreign('id_medecin')->references('id')->on('medecins') ->onDelete('cascade');
             $table->timestamps();

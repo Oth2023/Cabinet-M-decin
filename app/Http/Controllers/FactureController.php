@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Facture;
+use App\Models\Paiement;
 use Illuminate\Http\Request;
 
 class FactureController extends Controller
@@ -14,7 +15,8 @@ class FactureController extends Controller
      */
     public function index()
     {
-        //
+        $factures=Facture::all();
+        return view('factures.index',compact('factures'));
     }
 
     /**
@@ -24,7 +26,9 @@ class FactureController extends Controller
      */
     public function create()
     {
-        //
+        $paiments=Paiement::all();
+        return view('factures.create',compact('paiments'));
+
     }
 
     /**
@@ -35,7 +39,14 @@ class FactureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $factures=new Facture();
+        $factures->reff=$request->reff;
+        $factures->date_facturation=$request->date_facturation;
+        $factures->montant_total=$request->montant_total;
+        $factures->id_paiement=$request->id_paiement;
+        $factures->save();
+        return redirect()->route('factures.index');
+       
     }
 
     /**
@@ -44,9 +55,11 @@ class FactureController extends Controller
      * @param  \App\Models\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function show(Facture $facture)
+    public function show(string $id)
     {
-        //
+        $factures=Facture::find($id);
+        $paiments=Paiement::find($id);
+        return view('factures.shwo',compact(['factures','paiments']));
     }
 
     /**
@@ -55,9 +68,13 @@ class FactureController extends Controller
      * @param  \App\Models\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function edit(Facture $facture)
+    public function edit(string $id)
     {
-        //
+        
+        $factures=Facture::find($id);
+        $paiments=Paiement::find($id);
+
+        return view('factures.edit',compact(['factures','paiments']));
     }
 
     /**
@@ -67,9 +84,15 @@ class FactureController extends Controller
      * @param  \App\Models\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Facture $facture)
+    public function update(Request $request, string $id)
     {
-        //
+        $factures=Facture::find($id);
+        $factures->reff=$request->reff;
+        $factures->date_facturation=$request->date_facturation;
+        $factures->montant_total=$request->montant_total;
+        $factures->id_paiement=$request->id_paiement;
+        $factures->save();
+        return redirect()->route('factures.index');
     }
 
     /**
@@ -78,8 +101,11 @@ class FactureController extends Controller
      * @param  \App\Models\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Facture $facture)
+    public function destroy(string $id)
     {
-        //
+        $factures=Facture::find($id);
+        $factures->delete();
+        return redirect()->route('factures.index');
+
     }
 }

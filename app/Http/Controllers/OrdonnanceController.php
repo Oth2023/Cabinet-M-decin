@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medecin;
 use App\Models\Ordonnance;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class OrdonnanceController extends Controller
@@ -14,7 +16,8 @@ class OrdonnanceController extends Controller
      */
     public function index()
     {
-        //
+        $ordonnances=Ordonnance::all();
+        return view('ordonnances.index',compact('ordonnances'));
     }
 
     /**
@@ -23,8 +26,10 @@ class OrdonnanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {  $medecins = Medecin::all();
+        $patients = Patient::all();
+       
+        return view('ordonnances.create',compact(['medecins','patients']));
     }
 
     /**
@@ -35,7 +40,12 @@ class OrdonnanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ordonnance=new Ordonnance();
+        $ordonnance->id_medecin= $request->id_medecin;
+        $ordonnance->id_patient= $request->id_patient;
+        $ordonnance->date_ordonnance= $request->date_ordonnance;
+        $ordonnance->description= $request->description;
+        $ordonnance->save();
     }
 
     /**
@@ -44,9 +54,13 @@ class OrdonnanceController extends Controller
      * @param  \App\Models\Ordonnance  $ordonnance
      * @return \Illuminate\Http\Response
      */
-    public function show(Ordonnance $ordonnance)
+    public function show(string $id)
     {
-        //
+        $medecins = Medecin::find($id);
+        $patients = Patient::find($id);
+        $ordonnance=Ordonnance::find($id);
+        return view('ordonnances.create',compact(['ordonnance','medecins','patients']));
+    
     }
 
     /**
@@ -55,9 +69,14 @@ class OrdonnanceController extends Controller
      * @param  \App\Models\Ordonnance  $ordonnance
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ordonnance $ordonnance)
+    public function edit(string $id)
     {
-        //
+        $medecins = Medecin::find($id);
+        $patients = Patient::find($id);
+        $ordonnance=Ordonnance::find($id);
+
+        return view('ordonnances.create',compact(['ordonnance','medecins','patients']));
+    
     }
 
     /**
@@ -67,9 +86,14 @@ class OrdonnanceController extends Controller
      * @param  \App\Models\Ordonnance  $ordonnance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ordonnance $ordonnance)
+    public function update(Request $request, string $id)
     {
-        //
+        $ordonnance=Ordonnance::find($id);
+        $ordonnance->id_medecin= $request->id_medecin;
+        $ordonnance->id_patient= $request->id_patient;
+        $ordonnance->date_ordonnance= $request->date_ordonnance;
+        $ordonnance->description= $request->description;
+        $ordonnance->save();
     }
 
     /**
@@ -78,8 +102,10 @@ class OrdonnanceController extends Controller
      * @param  \App\Models\Ordonnance  $ordonnance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ordonnance $ordonnance)
+    public function destroy(string $id)
     {
-        //
+        $ordonnance=Ordonnance::find($id);
+        $ordonnance->delete();
+        return redirect()->route('ordonnances.index');
     }
 }

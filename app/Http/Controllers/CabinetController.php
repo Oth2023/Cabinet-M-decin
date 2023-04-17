@@ -14,7 +14,8 @@ class CabinetController extends Controller
      */
     public function index()
     {
-        //
+        $cabinets=Cabinet::all();
+        return view('cabinets.index',compact('cabinets'));  
     }
 
     /**
@@ -24,7 +25,7 @@ class CabinetController extends Controller
      */
     public function create()
     {
-        //
+        return view('cabinets.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class CabinetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          $cabinet=new Cabinet();
+        $cabinet->id_users=$request->id_users;
+        $cabinet->nom=$request->nom;
+        $cabinet->adresse=$request->adresse;
+        $cabinet->téléphone_fix=$request->téléphone_fix;
+        $cabinet->portable=$request->portable;
+        $cabinet->description=$request->description;
+        $cabinet->save();
+        return redirect()->route('cabinets.index');
     }
 
     /**
@@ -44,9 +53,10 @@ class CabinetController extends Controller
      * @param  \App\Models\Cabinet  $cabinet
      * @return \Illuminate\Http\Response
      */
-    public function show(Cabinet $cabinet)
+    public function show(string $id)
     {
-        //
+        $cabinet = Cabinet::find($id);
+        return view('employes.show', compact('cabinet'));
     }
 
     /**
@@ -55,9 +65,10 @@ class CabinetController extends Controller
      * @param  \App\Models\Cabinet  $cabinet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cabinet $cabinet)
+    public function edit(string $id)
     {
-        //
+        $cabinet = Cabinet::find($id);
+        return view('cabinets.show', compact('cabinet'));
     }
 
     /**
@@ -67,9 +78,17 @@ class CabinetController extends Controller
      * @param  \App\Models\Cabinet  $cabinet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cabinet $cabinet)
+    public function update(Request $request, string $id)
     {
-        //
+        $cabinet = Cabinet::find($id);
+        $cabinet->id_users=$request->id_users;
+        $cabinet->nom=$request->nom;
+        $cabinet->adresse=$request->adresse;
+        $cabinet->téléphone_fix=$request->téléphone_fix;
+        $cabinet->portable=$request->portable;
+        $cabinet->description=$request->description;
+        $cabinet->save();
+        return redirect()->route('cabinets.index');
     }
 
     /**
@@ -78,8 +97,12 @@ class CabinetController extends Controller
      * @param  \App\Models\Cabinet  $cabinet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cabinet $cabinet)
+    public function destroy(string $id)
     {
-        //
+
+        $cabinet=Cabinet::find($id);
+        $cabinet->delete();
+        return redirect()->route('cabinets.index');
+
     }
 }

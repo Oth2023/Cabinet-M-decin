@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produit;
 use App\Models\Stock;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        //
+        $stocks=Stock::all();
+        return view('stocks.index',compact('stocks'));
     }
 
     /**
@@ -24,7 +26,8 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        $produits=Produit::all();
+        return view('stocks.create',compact('produits'));
     }
 
     /**
@@ -35,7 +38,13 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $stocks=new Stock();
+        $stocks->id_produit=$request->id_produit;
+        $stocks->nom=$request->nom;
+        $stocks->qunatity=$request->qunatity;
+        $stocks->description=$request->description;
+        $stocks->save();
+        return redirect()->route('stocks.index',compact('stocks'));
     }
 
     /**
@@ -44,9 +53,11 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function show(Stock $stock)
+    public function show(string $id)
     {
-        //
+        $stocks=Stock::find($id);
+        $produits=Produit::find($id);
+        return view('stocks.show',compact('stocks',compact('produits')));
     }
 
     /**
@@ -55,9 +66,11 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function edit(Stock $stock)
+    public function edit(string $id)
     {
-        //
+        $stocks=Stock::find($id);
+        $produits=Produit::find($id);
+        return view('stocks.show',compact('stocks',compact('produits')));
     }
 
     /**
@@ -67,9 +80,15 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Stock $stock)
+    public function update(Request $request, string $id)
     {
-        //
+        $stocks=Stock::find($id);
+        $stocks->id_produit=$request->id_produit;
+        $stocks->nom=$request->nom;
+        $stocks->qunatity=$request->qunatity;
+        $stocks->description=$request->description;
+        $stocks->save();
+        return redirect()->route('stocks.index',compact('stocks'));
     }
 
     /**
@@ -78,8 +97,11 @@ class StockController extends Controller
      * @param  \App\Models\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Stock $stock)
+    public function destroy(string $id)
     {
-        //
+        $stocks=Stock::find($id);
+        $stocks->delete();
+        return redirect()->route('stocks.index');
+
     }
 }

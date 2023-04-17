@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medecin;
 use App\Models\RendezVous;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class RendezVousController extends Controller
      */
     public function index()
     {
-        //
+        $rendezVous=RendezVous::all();
+        return view('rendezVous.index',compact('rendezVous'));
     }
 
     /**
@@ -24,7 +26,8 @@ class RendezVousController extends Controller
      */
     public function create()
     {
-        //
+        $rendezVous=RendezVous::all();
+        return view('rendezVous.create',compact('rendezVous'));
     }
 
     /**
@@ -35,7 +38,14 @@ class RendezVousController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rendezVous=new RendezVous();
+        $rendezVous->id_medecin=$request->id_medecin;
+        $rendezVous->date_rendezVous=$request->date_rendezVous;
+        $rendezVous->heure=$request->heure;
+        $rendezVous->motif=$request->motif;
+        $rendezVous->type_rendezVous=$request->type_rendezVous;
+        $rendezVous->save();
+        return redirect()->route('rendezVous.index');
     }
 
     /**
@@ -44,9 +54,11 @@ class RendezVousController extends Controller
      * @param  \App\Models\RendezVous  $rendezVous
      * @return \Illuminate\Http\Response
      */
-    public function show(RendezVous $rendezVous)
+    public function show(string $id)
     {
-        //
+    $rendezVous=RendezVous::find($id);
+    $medecins=Medecin::find($id);
+    return view('rendezVous.show', compact(['rendezVous','medecins']));
     }
 
     /**
@@ -55,9 +67,11 @@ class RendezVousController extends Controller
      * @param  \App\Models\RendezVous  $rendezVous
      * @return \Illuminate\Http\Response
      */
-    public function edit(RendezVous $rendezVous)
+    public function edit(string $id)
     {
-        //
+        $rendezVous=RendezVous::find($id);
+    $medecins=Medecin::find($id);
+    return view('rendezVous.edit', compact(['rendezVous','medecins']));
     }
 
     /**
@@ -67,9 +81,16 @@ class RendezVousController extends Controller
      * @param  \App\Models\RendezVous  $rendezVous
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RendezVous $rendezVous)
+    public function update(Request $request, string $id)
     {
-        //
+        $rendezVous=RendezVous::find($id);
+        $rendezVous->id_medecin=$request->id_medecin;
+        $rendezVous->date_rendezVous=$request->date_rendezVous;
+        $rendezVous->heure=$request->heure;
+        $rendezVous->motif=$request->motif;
+        $rendezVous->type_rendezVous=$request->type_rendezVous;
+        $rendezVous->save();
+        return redirect()->route('rendezVous.index');
     }
 
     /**
@@ -78,8 +99,11 @@ class RendezVousController extends Controller
      * @param  \App\Models\RendezVous  $rendezVous
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RendezVous $rendezVous)
+    public function destroy(string $id)
     {
-        //
+        $rendezVous=RendezVous::find($id);
+$rendezVous->delete();
+        return redirect()->route('rendezVous.index');
+
     }
 }
