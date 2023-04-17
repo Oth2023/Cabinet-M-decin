@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nom');
             $table->boolean('sexe');
             // $table->string('adresse');
-            $table->string('téléphone');
+            $table->string('téléphone')->unique();
             $table->text('adresse');
             $table->date('date_naissance');
             $table->string('antecedents_medicaux');

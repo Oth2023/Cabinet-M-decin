@@ -25,7 +25,8 @@ class PaiementController extends Controller
      */
     public function create()
     {
-        //
+        $paiments=Paiement::all();
+        return view('paiments.index',compact('paiments'));
     }
 
     /**
