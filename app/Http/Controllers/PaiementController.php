@@ -14,7 +14,8 @@ class PaiementController extends Controller
      */
     public function index()
     {
-        //
+        $paiments=Paiement::all();
+        return view('paiments.index',compact('paiments'));
     }
 
     /**
