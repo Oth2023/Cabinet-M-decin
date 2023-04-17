@@ -23,8 +23,7 @@ return new class extends Migration
             $table->text('adresse');
             $table->date('date_naissance');
             $table->string('specialite');
-            $table->integer('pays');
-            $table->integer('code_postal');
+            // $table->integer('pays');
             
         $table->unsignedBigInteger('id_cabinet');
         $table->foreign('id_cabinet')->references('id')->on('cabinets') ->onDelete('cascade');

@@ -15,7 +15,7 @@ class MedecinController extends Controller
      */
     public function index()
     {
-        $medecins = Medecin::all();
+        $medecins = Medecin::get();
 
         return view('medecins.index', compact('medecins'));
     }
@@ -65,7 +65,7 @@ class MedecinController extends Controller
     public function show(string $id)
     {
         $medecin = Medecin::find($id);
-        return view('cabinets.show', compact('medecin'));
+        return view('medecins.show', compact('medecin'));
     }
 
     /**
