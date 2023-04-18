@@ -113,7 +113,7 @@ return view('medecins.edit',compact(['medecins','cabinets']));
     public function destroy(string $id)
     {
         $medecin= Medecin::find($id);
-        $medecin->save();
+        $medecin->delete();
         return view('medecins.destroy',compact('medecin'));
 
     }

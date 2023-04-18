@@ -11,9 +11,11 @@
                 <thead>
                     <tr class="text-dark">
                         <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                        <th scope="col">Prodcut Category</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Prix </th>
+                        <th scope="col"> Medecin</th>
+                        <th scope="col">Date Rendez Vous</th>
+                        <th scope="col">Heure </th>
+                        <th scope="col">Motif </th>
+                        <th scope="col">Type Rendez Vous </th>
                      
                         <th scope="col">Action </th>
 
@@ -21,11 +23,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($produits as $pro)
+                    @foreach ($rendezVous as $rend)
                         <tr>
-                            <td>{{ $pro->prodcutCategory ? $pro->prodcutCategory->id_category : '-' }}</td>
-                            <td>{{ $pro->nom }}</td>
-                            <td>{{ $pro->prix }}</td>
+                            <td>{{ $rend->medecins ? $rend->medecins->id_medecin : '-' }}</td>
+                            <td>{{ $rend->date_rendezVous }}</td>
+                            <td>{{ $rend->heure }}</td>
+                            <td>{{ $rend->motif }}</td>
+                            <td>{{ $rend->type_rendezVous }}</td>
                        
                             <td></td>
 

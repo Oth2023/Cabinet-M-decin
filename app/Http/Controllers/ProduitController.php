@@ -16,8 +16,8 @@ class ProduitController extends Controller
     public function index()
     {
         //
-        $produit = Produit::all();
-        return view('produit.index', compact('produit'));
+        $produits = Produit::all();
+        return view('produits.index', compact('produits'));
     }
 
     /*
@@ -29,7 +29,7 @@ class ProduitController extends Controller
     {
         //
         $ProdcutCategory = ProdcutCategory::all();
-        return view('produit.create', compact('ProdcutCategory'));
+        return view('produits.create', compact('ProdcutCategory'));
     }
 
     /*
@@ -45,10 +45,10 @@ class ProduitController extends Controller
         $produit->id_category= $request->id_category;
 
         $produit->nom= $request->nom;
-        $produit->prix= $request->sexe;
+        $produit->prix= $request->prix;
 
         $produit->save();
-        return redirect()->route('produit.index');
+        return redirect()->route('produits.index');
 
     }
 
@@ -61,9 +61,9 @@ class ProduitController extends Controller
     public function show(String $id)
     {
         //
-        $produit=Produit::find($id);
-        $prodcutCategory=ProdcutCategory::find($id);
-        return view('produit.shwo',compact(['produit','prodcutCategory']));
+        $produits=Produit::find($id);
+        $prodcutCategory=ProdcutCategory::find($produits->id_category);
+        return view('produits.shwo',compact(['produits','prodcutCategory']));
     }
 
     /*
@@ -75,8 +75,10 @@ class ProduitController extends Controller
     public function edit(Produit $id)
     {
         //
-        $produit= Produit::find($id);
-        return view('produit.edit',compact('produit'));
+        $produits= Produit::all($id);
+        $prodcutCategory=ProdcutCategory::all();
+
+        return view('produits.edit',compact(['produits','prodcutCategory']));
     }
 
     /*
@@ -94,7 +96,7 @@ class ProduitController extends Controller
         $produit->id_category= $request->id_category;
 
         $produit->nom= $request->nom;
-        $produit->prix= $request->sexe;
+        $produit->prix= $request->prix;
 
         $produit->save();
         return redirect()->route('produit.index');
@@ -109,8 +111,8 @@ class ProduitController extends Controller
     public function destroy(String $id)
     {
         //
-        $produit= Produit::find($id);
-        $produit->save();
-        return view('produit.destroy',compact('produit'));
+        $produits= Produit::find($id);
+        $produits->save();
+        return view('produit.destroy',compact('produits'));
     }
 }

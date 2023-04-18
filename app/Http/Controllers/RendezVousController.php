@@ -26,8 +26,8 @@ class RendezVousController extends Controller
      */
     public function create()
     {
-        $rendezVous=RendezVous::all();
-        return view('rendezVous.create',compact('rendezVous'));
+        $medecins=Medecin::all();
+        return view('rendezVous.create',compact('medecins'));
     }
 
     /**
@@ -57,7 +57,7 @@ class RendezVousController extends Controller
     public function show(string $id)
     {
     $rendezVous=RendezVous::find($id);
-    $medecins=Medecin::find($id);
+    $medecins=Medecin::find($rendezVous->id_medecin);
     return view('rendezVous.show', compact(['rendezVous','medecins']));
     }
 
@@ -70,7 +70,7 @@ class RendezVousController extends Controller
     public function edit(string $id)
     {
         $rendezVous=RendezVous::find($id);
-    $medecins=Medecin::find($id);
+    $medecins=Medecin::all();
     return view('rendezVous.edit', compact(['rendezVous','medecins']));
     }
 

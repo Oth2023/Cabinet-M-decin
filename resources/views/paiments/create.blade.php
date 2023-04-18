@@ -3,8 +3,8 @@
 @section('content')
     <div class="col-sm-12 col-xl-6 m-5">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Ajouter Ordonnance</h6>
-            <form action="{{ route('ordonnances.store') }}" method="post">
+            <h6 class="mb-4">Ajouter Paiment</h6>
+            <form action="{{ route('paiments.store') }}" method="post">
                 @csrf
               <div class="form-group">
                     <label for="id_medecin">Medecin:</label>
