@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-xl-6 m-5">
         <div class="bg-light rounded h-100 p-4">
             <h6 class="mb-4">Ajouter Patient</h6>
-            <form action="{{ route('patients.create') }}" method="post">
+            <form action="{{ route('patients.store') }}" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Nom</label>
@@ -12,6 +12,15 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Prénom</label>
                     <input type="text" name="prenom" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class=" mb-3">
+                    <label class="col-sm-2 col-label-form"> Sexe</label>
+                    <div class="col-sm-10">
+                        <select name="sexe" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label"> Date naissance</label>

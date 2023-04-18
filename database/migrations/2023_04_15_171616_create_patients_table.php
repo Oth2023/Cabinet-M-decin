@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('ville');
-            $table->boolean('sexe');
+            $table->enum('sexe', ['Male', 'Female']);
             $table->string('email');
             // $table->string('adresse');
             $table->integer('téléphone')->unique();

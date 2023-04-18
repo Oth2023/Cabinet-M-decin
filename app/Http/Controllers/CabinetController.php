@@ -39,9 +39,10 @@ class CabinetController extends Controller
           $cabinet=new Cabinet();
         $cabinet->id_users=$request->id_users;
         $cabinet->nom=$request->nom;
+        $cabinet->email=$request->email;
         $cabinet->adresse=$request->adresse;
         $cabinet->téléphone_fix=$request->téléphone_fix;
-        $cabinet->portable=$request->portable;
+        $cabinet->téléphone=$request->téléphone;
         $cabinet->description=$request->description;
         $cabinet->save();
         return redirect()->route('cabinets.index');
@@ -83,9 +84,10 @@ class CabinetController extends Controller
         $cabinet = Cabinet::find($id);
         $cabinet->id_users=$request->id_users;
         $cabinet->nom=$request->nom;
+        $cabinet->email=$request->email;
         $cabinet->adresse=$request->adresse;
         $cabinet->téléphone_fix=$request->téléphone_fix;
-        $cabinet->portable=$request->portable;
+        $cabinet->téléphone=$request->téléphone;
         $cabinet->description=$request->description;
         $cabinet->save();
         return redirect()->route('cabinets.index');

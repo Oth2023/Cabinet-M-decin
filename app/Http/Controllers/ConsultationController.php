@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Medecin;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
@@ -14,7 +16,8 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        $consultations=Consultation::all();
+        return view('consultations.index',compact('consultations'));
     }
 
     /**
@@ -24,7 +27,9 @@ class ConsultationController extends Controller
      */
     public function create()
     {
-        //
+        $medecins = Medecin::all();
+        $patients = Patient::all();
+        return view('consultations.create',compact(['medecins','patients']));
     }
 
     /**
@@ -35,7 +40,14 @@ class ConsultationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $consultation=new Consultation();
+        $consultation->id_medecin= $request->id_medecin;
+        $consultation->id_patient= $request->id_patient;
+        $consultation->date_consultation= $request->date_consultation;
+        $consultation->description= $request->description;
+        $consultation->heure= $request->heure;
+        $consultation->save();
+        return redirect()->route('consultations.index');
     }
 
     /**
@@ -55,9 +67,12 @@ class ConsultationController extends Controller
      * @param  \App\Models\Consultation  $consultation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Consultation $consultation)
+    public function edit(string $id)
     {
-        //
+        $medecins = Medecin::find($id);
+        $patients = Patient::find($id);
+        $consultations=Consultation::find($id);
+        return view('consultations.show',compact(['consultations','medecins','patients']));
     }
 
     /**
@@ -67,9 +82,16 @@ class ConsultationController extends Controller
      * @param  \App\Models\Consultation  $consultation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consultation $consultation)
+    public function update(Request $request, string $id)
     {
-        //
+        $consultation=Consultation::find($id);
+        $consultation->id_medecin= $request->id_medecin;
+        $consultation->id_patient= $request->id_patient;
+        $consultation->date_consultation= $request->date_consultation;
+        $consultation->description= $request->description;
+        $consultation->heure= $request->heure;
+        $consultation->save();
+        return redirect()->route('consultations.index');
     }
 
     /**
@@ -78,8 +100,10 @@ class ConsultationController extends Controller
      * @param  \App\Models\Consultation  $consultation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Consultation $consultation)
+    public function destroy(string $id)
     {
-        //
+        $consultations=Consultation::find($id);
+        $consultations->delete();
+        return redirect()->route('consultations.index');
     }
 }

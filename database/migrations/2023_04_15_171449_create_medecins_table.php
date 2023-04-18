@@ -16,14 +16,12 @@ return new class extends Migration
         Schema::create('medecins', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            $table->boolean('sexe');
-            // $table->string('adresse');
+            $table->enum('sexe', ['Male', 'Female']);
             $table->string('email')->unique();
             $table->string('téléphone')->unique();
             $table->text('adresse');
             $table->date('date_naissance');
             $table->string('specialite');
-            // $table->integer('pays');
             
         $table->unsignedBigInteger('id_cabinet');
         $table->foreign('id_cabinet')->references('id')->on('cabinets') ->onDelete('cascade');
