@@ -95,6 +95,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('rendezVous.index')}}" class="dropdown-item">Liste rendez Vous</a>
                             <a href="{{route('rendezVous.create')}}" class="dropdown-item">Ajouter rendez Vous</a>
+                            <a href="{{route('rendezVous.create')}}" class="dropdown-item">Ajouter rendez Vous</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
