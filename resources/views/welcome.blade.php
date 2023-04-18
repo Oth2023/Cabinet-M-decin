@@ -103,7 +103,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('produits.index')}}" class="dropdown-item">Liste  Produit</a>
                             <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
-                            <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
+                            {{-- <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a> --}}
                             ggggggggggggg
                         </div>
                     </div>
