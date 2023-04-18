@@ -86,7 +86,6 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('ordonnances.index')}}" class="dropdown-item">Liste Ordonnance</a>
                             <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
-                            {{-- <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a> --}}
                         </div>
                     </div>
 
@@ -95,7 +94,6 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('rendezVous.index')}}" class="dropdown-item">Liste rendez Vous</a>
                             <a href="{{route('rendezVous.create')}}" class="dropdown-item">Ajouter rendez Vous</a>
-                            <a href="{{route('rendezVous.create')}}" class="dropdown-item">Ajouter rendez Vous</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -103,8 +101,6 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('produits.index')}}" class="dropdown-item">Liste  Produit</a>
                             <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
-                            {{-- <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a> --}}
-                            ggggggggggggg
                         </div>
                     </div>
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
