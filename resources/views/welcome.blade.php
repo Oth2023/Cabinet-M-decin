@@ -86,6 +86,7 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('ordonnances.index')}}" class="dropdown-item">Liste Ordonnance</a>
                             <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
+                            <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
                         </div>
                     </div>
 
