@@ -102,6 +102,7 @@
                             <a href="{{route('produits.index')}}" class="dropdown-item">Liste  Produit</a>
                             <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
                             <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
+                            <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
                         vvb
                         </div>
                     </div>
