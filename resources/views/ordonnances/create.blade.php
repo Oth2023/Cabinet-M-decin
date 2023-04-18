@@ -15,7 +15,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="id_patient">Medecin:</label>
+                    <label for="id_patient">Patinet:</label>
                     <select name="id_patient" class="form-control" required>
                         @foreach ($patients as $pat)
                             <option value="{{ $pat->id }}">{{ $pat->nom }}</option>
