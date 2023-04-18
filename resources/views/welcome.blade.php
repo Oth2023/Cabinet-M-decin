@@ -88,13 +88,7 @@
                             <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Paiment</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="{{route('paiments.index')}}" class="dropdown-item">Liste Paiments</a>
-                            <a href="{{route('paiments.create')}}" class="dropdown-item">Ajouter Paiment</a>
-                        </div>
-                    </div>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Paiment</a>
                         <div class="dropdown-menu bg-transparent border-0">
