@@ -6,6 +6,7 @@ use App\Http\Controllers\OrdonnanceController;
 use App\Http\Controllers\PaiementController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RendezVousController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,4 +39,8 @@ Route::resource('paiments',PaiementController::class);
 Route::resource('cabinets',CabinetController::class);
 Route::resource('patients',PatientController::class);
 Route::resource('ordonnances',OrdonnanceController::class);
+Route::resource('rendezVous',RendezVousController::class);
+Route::resource('paiments',RendezVousController::class);
+Route::resource('produits',RendezVousController::class);
+
 require __DIR__.'/auth.php';
