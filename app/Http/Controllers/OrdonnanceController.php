@@ -46,6 +46,8 @@ class OrdonnanceController extends Controller
         $ordonnance->date_ordonnance= $request->date_ordonnance;
         $ordonnance->description= $request->description;
         $ordonnance->save();
+        return redirect()->route('ordonnances.index');
+
     }
 
     /**
@@ -58,8 +60,8 @@ class OrdonnanceController extends Controller
     {
         $medecins = Medecin::find($id);
         $patients = Patient::find($id);
-        $ordonnance=Ordonnance::find($id);
-        return view('ordonnances.create',compact(['ordonnance','medecins','patients']));
+        $ordonnances=Ordonnance::find($id);
+        return view('ordonnances.show',compact(['ordonnances','medecins','patients']));
     
     }
 
@@ -71,11 +73,11 @@ class OrdonnanceController extends Controller
      */
     public function edit(string $id)
     {
-        $medecins = Medecin::find($id);
-        $patients = Patient::find($id);
-        $ordonnance=Ordonnance::find($id);
+        $medecins = Medecin::all();
+        $patients = Patient::all();
+        $ordonnances=Ordonnance::find($id);
 
-        return view('ordonnances.create',compact(['ordonnance','medecins','patients']));
+        return view('ordonnances.edit',compact(['ordonnances','medecins','patients']));
     
     }
 
@@ -94,6 +96,8 @@ class OrdonnanceController extends Controller
         $ordonnance->date_ordonnance= $request->date_ordonnance;
         $ordonnance->description= $request->description;
         $ordonnance->save();
+        return redirect()->route('ordonnances.index');
+
     }
 
     /**

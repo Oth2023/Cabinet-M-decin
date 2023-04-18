@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('email');
             $table->integer('téléphone_fix');
-            $table->integer('portable');
+            $table->integer('téléphone');
             $table->string('description');
             // $table->date('');
             $table->unsignedBigInteger('id_users');

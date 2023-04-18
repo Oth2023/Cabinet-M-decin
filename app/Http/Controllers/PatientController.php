@@ -15,8 +15,8 @@ class PatientController extends Controller
     public function index()
     {
         //
-        $patient=Patient::all();
-        return view('patient.index',compact('patient')); 
+        $patients=Patient::all();
+        return view('patients.index',compact('patients')); 
     }
 
     /*
@@ -27,7 +27,7 @@ class PatientController extends Controller
     public function create()
     {
         //
-        return view('cabinets.create');
+        return view('patients.create');
     }
 
     /*
@@ -43,14 +43,14 @@ class PatientController extends Controller
         $patient->nom=$request->nom;
         $patient->prenom=$request->prenom;
         $patient->date_naissance=$request->date_naissance;
-        $patient->sex=$request->sex;
+        $patient->sexe=$request->sexe;
         $patient->adresse=$request->adresse;
         $patient->ville=$request->ville;
         $patient->telephone=$request->telephone;
         $patient->antecedents_medicaux=$request->antecedents_medicaux;
         $patient->allergies=$request->allergies;
         $patient->save();
-        return redirect()->route('patient.index');
+        return redirect()->route('patients.index');
     }
 
     /*
@@ -62,8 +62,8 @@ class PatientController extends Controller
     public function show(String $id)
     {
         //
-        $patient = Patient::find($id);
-        return view('patient.show', compact('patient'));
+        $patients= Patient::find($id);
+        return view('patients.show', compact('patients'));
     }
 
     /*
@@ -75,8 +75,8 @@ class PatientController extends Controller
     public function edit(String $id)
     {
         //
-        $patient = Patient::find($id);
-        return view('patient.edit', compact('patient'));
+        $patients = Patient::find($id);
+        return view('patients.edit', compact('patients'));
     }
 
     /*
@@ -93,14 +93,14 @@ class PatientController extends Controller
         $patient->nom=$request->nom;
         $patient->prenom=$request->prenom;
         $patient->date_naissance=$request->date_naissance;
-        $patient->sex=$request->sex;
+        $patient->sexe=$request->sexe;
         $patient->adresse=$request->adresse;
         $patient->ville=$request->ville;
         $patient->telephone=$request->telephone;
         $patient->antecedents_medicaux=$request->antecedents_medicaux;
         $patient->allergies=$request->allergies;
         $patient->save();
-        return redirect()->route('patient.index');
+        return redirect()->route('patients.index');
     }
 
     /**
@@ -112,8 +112,8 @@ class PatientController extends Controller
     public function destroy(string $id)
     {
         //
-        $patient=Patient::find($id);
-        $patient->delete();
-        return redirect()->route('patient.index');
+        $patients=Patient::find($id);
+        $patients->delete();
+        return redirect()->route('patients.index');
     }
 }

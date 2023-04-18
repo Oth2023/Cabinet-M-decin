@@ -61,11 +61,38 @@
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Medecin</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="button.html" class="dropdown-item">Buttons</a>
-                            <a href="typography.html" class="dropdown-item">Typography</a>
-                            <a href="element.html" class="dropdown-item">Other Elements</a>
+                            <a href="{{route('medecins.index')}}" class="dropdown-item">Liste Medecin</a>
+                            <a href="{{route('medecins.create')}}" class="dropdown-item">Ajouter Medecin</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Cabinet</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('cabinets.index')}}" class="dropdown-item">Liste Cabinet</a>
+                            <a href="{{route('cabinets.create')}}" class="dropdown-item">Ajouter Cabinet</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Patient</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('patients.index')}}" class="dropdown-item">Liste Patient</a>
+                            <a href="{{route('patients.create')}}" class="dropdown-item">Ajouter Cabinet</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Ordonnance</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('ordonnances.index')}}" class="dropdown-item">Liste Ordonnance</a>
+                            <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Paiment</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('paiments.index')}}" class="dropdown-item">Liste Paiments</a>
+                            <a href="{{route('paiments.create')}}" class="dropdown-item">Ajouter Paiment</a>
                         </div>
                     </div>
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
@@ -181,7 +208,7 @@
 
 
             <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
+            {{-- <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
@@ -220,7 +247,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            @yield('content')
             <!-- Sale & Revenue End -->
 
 
@@ -251,7 +279,7 @@
 
 
             <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
+            {{-- <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Recent Salse</h6>
@@ -320,7 +348,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Recent Sales End -->
 
 
@@ -447,7 +475,7 @@
 
 
             <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
+            {{-- <div class="container-fluid pt-4 px-4">
                 <div class="bg-light rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
@@ -461,7 +489,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Footer End -->
         </div>
         <!-- Content End -->

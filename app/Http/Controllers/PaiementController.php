@@ -17,8 +17,8 @@ class PaiementController extends Controller
     public function index()
     {
         //
-        $paiement=Paiement::all();
-        return view('paiement.index',compact('paiement'));
+        $paiments=Paiement::all();
+        return view('paiments.index',compact('paiments'));
     }
 
     /*
@@ -29,9 +29,9 @@ class PaiementController extends Controller
     public function create()
     {
         //
-        $patient=Patient::all();
-        $medecin=Medecin::all();
-        return view('paiement.create',compact('patient','medecin'));
+        $patients=Patient::all();
+        $medecins=Medecin::all();
+        return view('paiments.create',compact(['patients','medecins']));
     }
 
     /*
@@ -52,7 +52,7 @@ class PaiementController extends Controller
         $paiement->id_patient=$request->id_patient;
 
         $paiement->save();
-        return redirect()->route('paiement.index');
+        return redirect()->route('paiments.index');
     }
 
     /*
@@ -64,9 +64,10 @@ class PaiementController extends Controller
     public function show(String $id)
     {
         //
-        $patient=Patient::find($id);
-        $medecin=Medecin::find($id);
-        return view('paiement.shwo',compact(['patient','medecin']));
+        $patients=Patient::find($id);
+        $medecins=Medecin::find($id);
+        $paiments=Paiement::find($id);
+        return view('paiments.shwo',compact(['paiements','patient','medecin']));
     }
 
     /*
@@ -78,10 +79,11 @@ class PaiementController extends Controller
     public function edit(String $id)
     {
         //
-        $patient=Patient::find($id);
-        $medecin=Medecin::find($id);
+        $patients=Patient::find($id);
+        $medecins=Medecin::find();
+        $paiments=Paiement::all();
 
-        return view('paiement.edit',compact(['patient','medecin']));
+        return view('paiments.edit',compact(['patients','medecins','paiments']));
     }
 
     /*
@@ -102,7 +104,7 @@ class PaiementController extends Controller
         $paiement->id_patient=$request->id_patient;
 
         $paiement->save();
-        return redirect()->route('paiement.index');
+        return redirect()->route('paiments.index');
     }
 
     /**
@@ -114,8 +116,8 @@ class PaiementController extends Controller
     public function destroy(String $id)
     {
         //
-        $paiement=Paiement::find($id);
-        $paiement->delete();
-        return redirect()->route('paiement.index');
+        $paiments=Paiement::find($id);
+        $paiments->delete();
+        return redirect()->route('paiments.index');
     }
 }

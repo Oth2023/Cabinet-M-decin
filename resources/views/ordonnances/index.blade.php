@@ -5,7 +5,7 @@
 <div class="container-fluid pt-4 px-4">
     <div class="bg-light text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Liste Paiment</h6>
+            <h6 class="mb-0">Liste Medecin</h6>
             <a href="">Show All</a>
         </div>
         <div class="table-responsive">
@@ -16,20 +16,20 @@
                         <th scope="col">Medcin</th>
                         <th scope="col">Patinet</th>
                        
-                        <th scope="col"> Montant<</th>
-                        <th scope="col"> Date Paiement</th>
+                        <th scope="col">Date Ordonnance</th>
+                        <th scope="col"> Description</th>
                         <th scope="col">Action </th>
                      
                     </tr>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($paiments as $pai)
+                    @foreach ($ordonnances as $ord)
                     <tr>
-                        <td>{{ $pai->medecins ? $pai->medecins->id_medecin : '-' }}</td>
-                        <td>{{ $pai->patients ? $pai->patients->id_patient : '-' }}</td>
-                        <td>{{$pai->date_paiement}}</td>
-                        <td>{{$pai->montant}}</td>
+                        <td>{{ $ord->medecins ? $ord->medecins->id_medecin : '-' }}</td>
+                        <td>{{ $ord->patients ? $ord->patients->id_patient : '-' }}</td>
+                        <td>{{$ord->date_ordonnance}}</td>
+                        <td>{{$ord->description}}</td>
 
                         <td></td>
                    

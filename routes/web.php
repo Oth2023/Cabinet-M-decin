@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\MedecinController;
+use App\Http\Controllers\OrdonnanceController;
+use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('medecins',MedecinController::class);
+Route::resource('paiments',PaiementController::class);
+Route::resource('cabinets',CabinetController::class);
+Route::resource('patients',PatientController::class);
+Route::resource('ordonnances',OrdonnanceController::class);
 require __DIR__.'/auth.php';

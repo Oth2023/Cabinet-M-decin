@@ -26,8 +26,8 @@ class MedecinController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {        $cabinet = Cabinet::all();
-        return view('medecins.create', compact('cabinet'));
+    {        $cabinets = Cabinet::all();
+        return view('medecins.create', compact('cabinets'));
 
     }
 
@@ -48,8 +48,6 @@ class MedecinController extends Controller
         $medecin->adresse= $request->adresse;
         $medecin->date_naissance= $request->date_naissance;
         $medecin->specialite= $request->specialite;
-        $medecin->pays= $request->pays;
-        $medecin->code_postal= $request->code_postal;
         $medecin->save();
         return redirect()->route('medecins.index');
 
@@ -64,8 +62,9 @@ class MedecinController extends Controller
      */
     public function show(string $id)
     {
-        $medecin = Medecin::find($id);
-        return view('medecins.show', compact('medecin'));
+        $medecins = Medecin::find($id);
+        $cabinets=Cabinet::find($medecins->id_cabinet);
+        return view('medecins.show', compact(['medecins','cabinets']));
     }
 
     /**
@@ -76,8 +75,9 @@ class MedecinController extends Controller
      */
     public function edit(string $id)
     {
-        $medecin= Medecin::find($id);
-return view('medecins.edit',compact('medecin'));
+        $medecins= Medecin::find($id);
+        $cabinets=Cabinet::all();
+return view('medecins.edit',compact(['medecins','cabinets']));
     }
 
     /**
@@ -99,8 +99,6 @@ return view('medecins.edit',compact('medecin'));
         $medecin->adresse= $request->adresse;
         $medecin->date_naissance= $request->date_naissance;
         $medecin->specialite= $request->specialite;
-        $medecin->pays= $request->pays;
-        $medecin->code_postal= $request->code_postal;
         $medecin->save();
         return redirect()->route('medecins.index');
 
