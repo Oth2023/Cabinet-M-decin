@@ -88,7 +88,7 @@
                             <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
                         </div>
                     </div>
-                        fffff
+                        
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Rendze Vous</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -101,6 +101,13 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route('produits.index')}}" class="dropdown-item">Liste  Produit</a>
                             <a href="{{route('produits.create')}}" class="dropdown-item">Ajouter  Produit</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Consultation</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="{{route('consultations.index')}}" class="dropdown-item">Liste  Consultation</a>
+                            <a href="{{route('consultations.create')}}" class="dropdown-item">Ajouter  Consultation</a>
                         </div>
                     </div>
                     <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
