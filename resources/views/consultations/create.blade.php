@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-sm-12 col-xl-6 m-5">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Ajouter Ordonnance</h6>
+            <h6 class="mb-4">Ajouter Consultation</h6>
             <form action="{{ route('consultations.store') }}" method="post">
                 @csrf
               <div class="form-group">

@@ -6,16 +6,16 @@
             <form action="{{ route('produits.store') }}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Nom</label>
-                    <input type="text" name="nom" class="form-control" id="exampleInputPassword1">
+                    <label for="nom" class="form-label">Nom</label>
+                    <input type="text" name="nom" class="form-control" id="nom">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Prix</label>
-                    <input type="text" name="prix" class="form-control" id="exampleInputPassword1">
+                    <label for="prix" class="form-label">Prix</label>
+                    <input type="text" name="prix" class="form-control" id="prix">
                 </div>
           
                 <div class="form-group">
-                    <label for="id_category">Produit:</label>
+                    <label for="id_category">Produit Category:</label>
                     <select name="id_category" class="form-control" required>
                         @foreach ($prodcutCategory as $proC)
                             <option value="{{ $proC->id }}">{{ $proC->nom }}</option>

@@ -23,13 +23,13 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Date ordonnance</label>
-                    <input type="date" name="date_ordonnance" class="form-control" id="exampleInputEmail1" $>
+                    <label for="date_ordonnance" class="form-label">Date ordonnance</label>
+                    <input type="date" name="date_ordonnance" class="form-control" id="date_ordonnance" $>
 
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Description</label>
-                    <input type="text" name="description" class="form-control" id="exampleInputPassword1">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control" id="description">
                 </div>
              
                 <button type="submit" class="btn btn-primary">Ajouter </button>

@@ -6,16 +6,16 @@
             <form action="{{ route('rendezVous.store') }}" method="post">
                 @csrf
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Date</label>
-                    <input type="text" name="date_rendezVous" class="form-control" id="exampleInputPassword1">
+                    <label for="date_rendezVous" class="form-label">Date</label>
+                    <input type="text" name="date_rendezVous" class="form-control" id="date_rendezVous">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Heure</label>
-                    <input type="text" name="heure" class="form-control" id="exampleInputPassword1">
+                    <label for="heure" class="form-label">Heure</label>
+                    <input type="time" name="heure" class="form-control" id="heure">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Motif</label>
-                    <input type="text" name="motif" class="form-control" id="exampleInputPassword1">
+                    <label for="motif" class="form-label">Motif</label>
+                    <input type="text" name="motif" class="form-control" id="motif">
                 </div>
                 <div class="form-group">
                     <label for="type_rendezVous">Type:</label>

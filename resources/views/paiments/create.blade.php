@@ -23,13 +23,13 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"> Date Paiement</label>
-                    <input type="date" name="date_paiement" class="form-control" id="exampleInputEmail1" $>
+                    <label for="date_paiement" class="form-label"> Date Paiement</label>
+                    <input type="date" name="date_paiement" class="form-control" id="date_paiement" $>
 
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Montant</label>
-                    <input type="text" name="montant" class="form-control" id="exampleInputPassword1">
+                    <label for="montant" class="form-label">Montant</label>
+                    <input type="text" name="montant" class="form-control" id="montant">
                 </div>
              
                 <button type="submit" class="btn btn-primary">Ajouter </button>
