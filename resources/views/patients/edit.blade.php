@@ -16,9 +16,9 @@
                 <div class=" mb-3">
                     <label class="col-sm-2 col-label-form"> Sexe</label>
                     <div class="col-sm-10">
-                        <select name="sexe" class="form-control">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                        <select name="sexe" class="form-control ">
+                            <option value="Male" {{ old('sexe', $patients->sexe) === 'Male' ? 'selected' : '' }}>Male</option>
+                            <option value="Female" {{ old('sexe', $patients->sexe) === 'Female' ? 'selected' : '' }}>Female</option>
                         </select>
                     </div>
                 </div>
@@ -59,8 +59,8 @@
             </form>
         </div>
     </div>
-    <script>
-                document.getElementsByName('sexe')[0].value = "{{ $medecins->sexe }}";
+    {{-- <script>
+                document.getElementsByName('sexe')[0].value = "{{ $patinets->sexe }}";
 
-    </script>
+    </script> --}}
 @endsection

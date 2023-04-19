@@ -16,9 +16,9 @@
                 <div class=" mb-3">
                     <label class="form-label"> Sexe</label>
                     <div class="">
-                        <select name="sexe" class="form-control">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                        <select name="sexe" class="form-control @error('sexe') is-invalid @enderror">
+                            <option value="Male" {{ old('sexe', $patient->sexe) === 'Male' ? 'selected' : '' }}>Male</option>
+                            <option value="Female" {{ old('sexe', $patient->sexe) === 'Female' ? 'selected' : '' }}>Female</option>
                         </select>
                     </div>
                 </div>
@@ -60,8 +60,5 @@
             </form>
         </div>
     </div>
-    <script>
-        document.getElementsByName('sexe')[0].value = "{{ $medecins->sexe }}";
-
-    </script>
+  
 @endsection
