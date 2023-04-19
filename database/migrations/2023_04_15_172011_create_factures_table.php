@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('reff')->unique();
             $table->date('date_facturation');
             $table->integer('montant_total');
+
             $table->unsignedBigInteger('id_paiement');
             $table->foreign('id_paiement')->references('id')->on('paiements') ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

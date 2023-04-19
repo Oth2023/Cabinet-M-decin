@@ -7,15 +7,15 @@
                 @csrf
                 <div class="mb-3">
                     <label for="date_rendezVous" class="form-label">nom</label>
-                    <input type="text" value="{{$stocks->nom}}" name="date_rendezVous" class="form-control" id="nom">
+                    <input type="text" value="{{$stocks->nom}}" name="nom" class="form-control" id="nom">
                 </div>
                 <div class="mb-3">
                     <label for="heure" class="form-label">qunatity</label>
-                    <input type="number" value="{{$stocks->qunatity}}" name="heure" class="form-control" id="qunatity">
+                    <input type="number" value="{{$stocks->qunatity}}" name="qunatity" class="form-control" id="qunatity">
                 </div>
                 <div class="mb-3">
                     <label for="motif" class="form-label">description</label>
-                    <input type="text" value="{{$stocks->description}}" name="motif" class="form-control" id="description">
+                    <input type="text" value="{{$stocks->description}}" name="description" class="form-control" id="description">
                 </div>
 
 
