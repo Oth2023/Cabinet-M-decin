@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('téléphone_fix');
             $table->integer('téléphone');
             $table->string('description');
-            // $table->date('');
+            // $table->date('ffff');
             $table->unsignedBigInteger('id_users');
             $table->foreign('id_users')->references('id')->on('users');
             $table->timestamps();
