@@ -44,7 +44,7 @@ Route::resource('cabinets',CabinetController::class);
 Route::resource('patients',PatientController::class);
 Route::resource('ordonnances',OrdonnanceController::class);
 Route::resource('rendezVous',RendezVousController::class);
-Route::resource('paiments',PaiementController::class);
+// Route::resource('paiments',PaiementController::class);
 Route::resource('produits',ProduitController::class);
 
 require __DIR__.'/auth.php';
