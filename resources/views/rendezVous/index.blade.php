@@ -31,7 +31,15 @@
                             <td>{{ $rend->motif }}</td>
                             <td>{{ $rend->type_rendezVous }}</td>
                        
-                            <td></td>
+                            <td>
+                                <a href="{{ route('rendezVous.show', $rend->id) }}" class="btn btn-info">Voir</a>
+                    <a href="{{ route('rendezVous.edit', $rend->id) }}" class="btn btn-primary">Modifier</a>
+                    <form action="{{ route('rendezVous.destroy', $rend->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce rendezVous ?')">Supprimer</button>
+                    </form>
+                            </td>
 
                         </tr>
                     @endforeach

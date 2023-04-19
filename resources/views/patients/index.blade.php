@@ -2,17 +2,16 @@
 
 
 @section('content')
-    <div class="container-fluid pt-4 px-4">
+    <div class="container-fluid w-600 pt-4 px-4">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Liste PAtinet</h6>
                 <a href="">Show All</a>
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive wt-300">
                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                     <thead>
                         <tr class="text-dark">
-                            <th scope="col"><input class="form-check-input" type="checkbox"></th>
                             <th scope="col">Nom</th>
                             <th scope="col">Prénom</th>
                             <th scope="col">Date naissance</th>
@@ -41,7 +40,15 @@
                                 <td>{{ $pat->email }}</td>
                                 <td>{{ $pat->antecedents_paticaux }}</td>
                                 <td>{{ $pat->allergies }}</td>
-                                <td></td>
+                                <td>
+                                    <a href="{{ route('patients.show', $pat->id) }}" class="btn btn-info">Voir</a>
+                                    <a href="{{ route('patients.edit', $pat->id) }}" class="btn btn-primary">Modifier</a>
+                                    <form action="{{ route('patients.destroy', $pat->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livres ?')">Supprimer</button>
+                                    </form>
+                                </td>
 
                             </tr>
                         @endforeach

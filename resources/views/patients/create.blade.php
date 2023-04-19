@@ -50,18 +50,11 @@
 
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Allergies</label>
+                    <label for="exampleInputEmail1" class="form-label">Antecedents Medicaux</label>
                     <input type="text" name="antecedents_medicaux" class="form-control" id="exampleInputEmail1" $>
 
                 </div>
-                {{-- <div class="form-group">
-                    <label for="employe_id">Cabinet:</label>
-                    <select name="employe_id" class="form-control" required>
-                        @foreach ($users as $use)
-                            <option value="{{ $use->id }}">{{ $use->nom }}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
+        
                 <button type="submit" class="btn btn-primary">Ajouter Patient</button>
             </form>
         </div>

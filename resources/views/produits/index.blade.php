@@ -27,7 +27,15 @@
                             <td>{{ $pro->nom }}</td>
                             <td>{{ $pro->prix }}</td>
                        
-                            <td></td>
+                            <td>
+                                <a href="{{ route('produits.show', $pro->id) }}" class="btn btn-info">Voir</a>
+                                <a href="{{ route('produits.edit', $pro->id) }}" class="btn btn-primary">Modifier</a>
+                                <form action="{{ route('produits.destroy', $pro->id) }}" method="POST" style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produits ?')">Supprimer</button>
+                                </form>
+                            </td>
 
                         </tr>
                     @endforeach

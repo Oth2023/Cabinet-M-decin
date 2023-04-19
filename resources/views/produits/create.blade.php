@@ -15,7 +15,7 @@
                 </div>
           
                 <div class="form-group">
-                    <label for="id_category">Cabinet:</label>
+                    <label for="id_category">Produit:</label>
                     <select name="id_category" class="form-control" required>
                         @foreach ($prodcutCategory as $proC)
                             <option value="{{ $proC->id }}">{{ $proC->nom }}</option>

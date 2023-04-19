@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('medecins', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->string('prenom');
             $table->enum('sexe', ['Male', 'Female']);
             $table->string('email')->unique();
             $table->string('téléphone')->unique();

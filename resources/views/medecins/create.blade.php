@@ -9,6 +9,10 @@
                     <label for="exampleInputPassword1" class="form-label">Nom</label>
                     <input type="text" name="nom" class="form-control" id="exampleInputPassword1">
                 </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Prénom</label>
+                    <input type="text" name="prenom" class="form-control" id="exampleInputPassword1">
+                </div>
                 <div class=" mb-3">
                     <label class="form-label"> Sexe</label>
                     <div class="">

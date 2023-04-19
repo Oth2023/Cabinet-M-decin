@@ -31,7 +31,15 @@
                         <td>{{$ord->date_ordonnance}}</td>
                         <td>{{$ord->description}}</td>
 
-                        <td></td>
+                        <td>
+                            <a href="{{ route('ordonnances.show', $ord->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{{ route('ordonnances.edit', $ord->id) }}" class="btn btn-primary">Modifier</a>
+                            <form action="{{ route('ordonnances.destroy', $ord->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce ordonnances ?')">Supprimer</button>
+                            </form>
+                        </td>
                    
                      </tr>
                     @endforeach

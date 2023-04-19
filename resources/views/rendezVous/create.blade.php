@@ -2,7 +2,7 @@
 @section('content')
     <div class="col-sm-12 col-xl-6 m-5">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Ajouter Patient</h6>
+            <h6 class="mb-4">Ajouter Rendez vous</h6>
             <form action="{{ route('rendezVous.store') }}" method="post">
                 @csrf
                 <div class="mb-3">
@@ -27,7 +27,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="id_medecin">Cabinet:</label>
+                    <label for="id_medecin">Medecin:</label>
                     <select name="id_medecin" class="form-control" required>
                         @foreach ($medecins as $med)
                             <option value="{{ $med->id }}">{{ $med->nom }}</option>

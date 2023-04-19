@@ -42,11 +42,12 @@ class PatientController extends Controller
         $patient=new Patient();
         $patient->nom=$request->nom;
         $patient->prenom=$request->prenom;
+        $patient->email=$request->email;
         $patient->date_naissance=$request->date_naissance;
         $patient->sexe=$request->sexe;
         $patient->adresse=$request->adresse;
         $patient->ville=$request->ville;
-        $patient->telephone=$request->telephone;
+        $patient->téléphone=$request->téléphone;
         $patient->antecedents_medicaux=$request->antecedents_medicaux;
         $patient->allergies=$request->allergies;
         $patient->save();
@@ -96,7 +97,7 @@ class PatientController extends Controller
         $patient->sexe=$request->sexe;
         $patient->adresse=$request->adresse;
         $patient->ville=$request->ville;
-        $patient->telephone=$request->telephone;
+        $patient->téléphone=$request->téléphone;
         $patient->antecedents_medicaux=$request->antecedents_medicaux;
         $patient->allergies=$request->allergies;
         $patient->save();

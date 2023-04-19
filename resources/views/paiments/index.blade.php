@@ -31,7 +31,15 @@
                         <td>{{$pai->date_paiement}}</td>
                         <td>{{$pai->montant}}</td>
 
-                        <td></td>
+                        <td>
+                            <a href="{{ route('paiments.show', $pai->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{{ route('paiments.edit', $pai->id) }}" class="btn btn-primary">Modifier</a>
+                            <form action="{{ route('paiments.destroy', $pai->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce paiments ?')">Supprimer</button>
+                            </form>
+                        </td>
                    
                      </tr>
                     @endforeach

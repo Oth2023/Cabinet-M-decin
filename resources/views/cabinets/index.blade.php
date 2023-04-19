@@ -32,7 +32,15 @@
                         <td>{{$cab->téléphone_fix}}</td>
                         <td>{{$cab->email}}</td>
                         <td>{{$cab->description}}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{ route('cabinets.show', $cab->id) }}" class="btn btn-info">Voir</a>
+                    <a href="{{ route('cabinets.edit', $cab->id) }}" class="btn btn-primary">Modifier</a>
+                    <form action="{{ route('cabinets.destroy', $cab->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce cabinets ?')">Supprimer</button>
+                    </form>
+                        </td>
                    
                      </tr>
                     @endforeach
