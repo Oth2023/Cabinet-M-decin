@@ -1,6 +1,6 @@
 @extends('welcome')
 @section('content')
-
+        facture
     <div class="col-sm-12 col-xl-6 m-5">
         <div class="bg-light rounded h-100 p-4">
             <h6 class="mb-4">Ajouter une Facture</h6>
