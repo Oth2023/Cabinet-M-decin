@@ -88,7 +88,7 @@
                             <a href="{{route('ordonnances.create')}}" class="dropdown-item">Ajouter Ordonnance</a>
                         </div>
                     </div>
-
+                        fffff
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Rendze Vous</a>
                         <div class="dropdown-menu bg-transparent border-0">
