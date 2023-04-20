@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\FactureController;
 use App\Http\Controllers\MedecinController;
 use App\Http\Controllers\OrdonnanceController;
 use App\Http\Controllers\PaiementController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RendezVousController;
+use App\Http\Controllers\StockController;
 use App\Models\ProdcutCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/A', function () {
     return view('welcome');
 });
 
@@ -46,6 +52,8 @@ Route::resource('ordonnances',OrdonnanceController::class);
 Route::resource('rendezVous',RendezVousController::class);
 // Route::resource('paiments',PaiementController::class);
 Route::resource('produits',ProduitController::class);
+Route::resource('factures',FactureController::class);
+Route::resource('stocks',StockController::class);
 
 require __DIR__.'/auth.php';
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
