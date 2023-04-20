@@ -49,10 +49,17 @@ Route::resource('cabinets',CabinetController::class);
 Route::resource('patients',PatientController::class);
 Route::resource('ordonnances',OrdonnanceController::class);
 Route::resource('rendezVous',RendezVousController::class);
+<<<<<<< HEAD
 // Route::resource('paiments',PaiementController::class);
 Route::resource('produits',ProduitController::class);
 Route::resource('factures',FactureController::class);
 Route::resource('stocks',StockController::class);
+=======
+Route::resource('paiments',RendezVousController::class);
+Route::resource('produits',RendezVousController::class);
+Route::resource('stock',StockController::class);
+Route::resource('facture',FactureController::class);
+>>>>>>> 82b0c598a0081948ed18a1d1b06155341c76139c
 
 require __DIR__.'/auth.php';
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
