@@ -19,9 +19,8 @@ return new class extends Migration
             $table->date('date_facturation');
             $table->integer('montant_total');
 
-            $table->unsignedBigInteger('id_paiement');
-            $table->foreign('id_paiement')->references('id')->on('paiements') ->onDelete('cascade');
-            
+            $table->unsignedBigInteger('id_paiment');
+            $table->foreign('id_paiment')->references('id')->on('paiments') ->onDelete('cascade');
             $table->timestamps();
         });
     }

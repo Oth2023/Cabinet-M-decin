@@ -11,7 +11,6 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RendezVousController;
 use App\Http\Controllers\StockController;
-use App\Models\ProdcutCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
